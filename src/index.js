@@ -66,3 +66,17 @@ scrollLinks.forEach((link) => {
     linksContainer.classList.remove("show");
   });
 });
+
+// nav links toggle active class -----------
+const navlinks = document.querySelectorAll(".nav-link");
+
+navlinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    navlinks.forEach((l) => l.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+  });
+  scrollToTopBtn.addEventListener("click", (e) => {
+    navlinks.forEach((l) => l.classList.remove("active"));
+    navlinks[0].classList.add("active");
+  });
+});

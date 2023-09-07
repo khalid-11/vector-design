@@ -22,14 +22,7 @@ module.exports = {
       writeToDisk: true,
     },
   },
-  module: {
-    rules: [
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-      },
-    ],
-  },
+
   module: {
     rules: [
       {
@@ -58,12 +51,23 @@ module.exports = {
           filename: "./images/[name][ext]",
         },
       },
+      {
+        test: /\.(svg|eot|woff|woff2|ttf)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "./fonts/[name][ext]",
+        },
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "arab.html",
+      template: "./src/arab.html",
     }),
     new MiniCssExtractPlugin({
       filename: "css/style.css",
