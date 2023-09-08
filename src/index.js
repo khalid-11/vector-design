@@ -56,7 +56,6 @@ scrollLinks.forEach((link) => {
     if (navbarHeight > 82) {
       position = position + containerHeight;
     }
-    console.log(position);
 
     window.scrollTo({
       left: 0,
@@ -78,5 +77,82 @@ navlinks.forEach((link) => {
   scrollToTopBtn.addEventListener("click", (e) => {
     navlinks.forEach((l) => l.classList.remove("active"));
     navlinks[0].classList.add("active");
+  });
+});
+
+// language btn script
+let modeBtns = document.querySelectorAll(".mode-btn");
+
+let pagmode;
+modeBtns.forEach((Btn) => {
+  Btn.addEventListener("click", () => {
+    if (!Btn.classList.contains("active")) {
+      Btn.classList.add("active");
+      pagmode = "dark";
+    } else if (Btn.classList.contains("active")) {
+      Btn.classList.remove("active");
+      pagmode = "light";
+    }
+    if (pagmode === "dark") {
+      document.documentElement.style.setProperty(
+        "--brown-level1-clr",
+        "#fc9675"
+      );
+      document.documentElement.style.setProperty(
+        "--brown-level2-clr",
+        "#a85539"
+      );
+      document.documentElement.style.setProperty("--dark-clr", "#ececee");
+      document.documentElement.style.setProperty("--light-clr", "#2b3a3e");
+      document.documentElement.style.setProperty("--bronze-clr", "#9e8656");
+      document.documentElement.style.setProperty(
+        "--grey-level1-clr",
+        "#d7d7d7"
+      );
+      document.documentElement.style.setProperty(
+        "--grey-level2-clr",
+        "#939799"
+      );
+      document.documentElement.style.setProperty(
+        "--light-shadow-clr",
+        "#00000040"
+      );
+      document.documentElement.style.setProperty(
+        "-heighlight-ligh",
+        "#d0d0d0b0"
+      );
+
+      document.body.style.backgroundImage = `url(../images/Vector-dark.png)`;
+    } else if (pagmode === "light") {
+      document.documentElement.style.setProperty(
+        "--brown-level1-clr",
+        "#c36243"
+      );
+      document.documentElement.style.setProperty(
+        "--brown-level2-clr",
+        "#a85539"
+      );
+      document.documentElement.style.setProperty("--dark-clr", "#2b3a3e");
+      document.documentElement.style.setProperty("--light-clr", "#ececee");
+      document.documentElement.style.setProperty("--bronze-clr", "#9e8656");
+      document.documentElement.style.setProperty(
+        "--grey-level1-clr",
+        "#bbbcbd"
+      );
+      document.documentElement.style.setProperty(
+        "--grey-level2-clr",
+        "#939799"
+      );
+      document.documentElement.style.setProperty(
+        "--light-shadow-clr",
+        "#bababa40"
+      );
+      document.documentElement.style.setProperty(
+        "-heighlight-ligh",
+        "#d0d0d0b0"
+      );
+
+      document.body.style.backgroundImage = `url(../images/Vector-light.png)`;
+    }
   });
 });
