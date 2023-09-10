@@ -80,9 +80,15 @@ navlinks.forEach((link) => {
   });
 });
 
-// language btn script
+// mode btn script
 let modeBtns = document.querySelectorAll(".mode-btn");
-
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.style.backgroundImage = "url(../images/Vector-light.png";
+  document.querySelectorAll(".service-icon").forEach((icon) => {
+    icon.style.backgroundImage =
+      "linear-gradient(to bottom, #f89f82ae, transparent)";
+  });
+});
 let pagmode;
 modeBtns.forEach((Btn) => {
   Btn.addEventListener("click", () => {
@@ -121,8 +127,12 @@ modeBtns.forEach((Btn) => {
         "-heighlight-ligh",
         "#d0d0d0b0"
       );
-
       document.body.style.backgroundImage = `url(../images/Vector-dark.png)`;
+
+      document.querySelectorAll(".service-icon").forEach((icon) => {
+        icon.style.backgroundImage =
+          "linear-gradient(to bottom, #fc9675, #ececee)";
+      });
     } else if (pagmode === "light") {
       document.documentElement.style.setProperty(
         "--brown-level1-clr",
@@ -151,8 +161,37 @@ modeBtns.forEach((Btn) => {
         "-heighlight-ligh",
         "#d0d0d0b0"
       );
-
+      document.querySelectorAll(".service-icon").forEach((icon) => {
+        icon.style.backgroundImage =
+          "linear-gradient(to bottom, #f89f82ae, transparent)";
+      });
       document.body.style.backgroundImage = `url(../images/Vector-light.png)`;
     }
   });
 });
+
+// form validation
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  "use strict";
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach((form) => {
+    form.addEventListener(
+      "submit",
+      (event) => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();
