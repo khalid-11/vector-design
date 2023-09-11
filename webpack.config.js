@@ -69,6 +69,10 @@ module.exports = {
       filename: "arab.html",
       template: "./src/arab.html",
     }),
+    new HtmlWebpackPlugin({
+      filename: "turkish.html",
+      template: "./src/turkish.html",
+    }),
     new MiniCssExtractPlugin({
       filename: "css/style.css",
     }),
